@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -47,7 +48,7 @@ Route::resource('banners', BannerController::class);
 Route::get('/change-password', [UserController::class, 'changePassword'])->name('changePassword');
 Route::post('/change-password', [UserController::class, 'changePasswordSave'])->name('postChangePassword');
 
-
+Route::resource('/shops',ShopController::class);
 
 Route::get('/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
 Route::put('/profile/update',[ProfileController::class,'update'])->name('profile.update');
@@ -56,6 +57,8 @@ Route::get('/contact/{id}',[ContactUsController::class,'destory'])->name('delete
 
 });
 Route::get('anser/all/question',[Answer::class,'display'])->name('display_all_answer');
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+Route::get('/languageDemo', 'App\Http\Controllers\HomeController@languageDemo');
 
 Route::post('save/contact_us',[ContactUsController::class,'store'])->name('contact_us');
 Route::get('question',[ContactUsController::class,'questions'])->name('questions');

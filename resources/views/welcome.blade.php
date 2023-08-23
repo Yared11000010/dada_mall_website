@@ -419,6 +419,11 @@
               <div class="inset-lg-right-60 inset-xxl-left-85 inset-xxl-right-120">
                 <hr class="divider hr-left-0 bg-bermuda">
                 <h3 class="offset-top-20">Contact Us</h3>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
                 <p class="offset-top-40">You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit us personally. We would be happy to answer your questions.</p>
                 <!-- RD Mailform-->
                 <form class="rd-mailform text-left offset-top-35" method="post" action="{{ route('contact_us') }}">

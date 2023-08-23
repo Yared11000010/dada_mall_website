@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advertisement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class AdvertisementController extends Controller
@@ -23,7 +24,6 @@ class AdvertisementController extends Controller
     public function create()
     {
         return view('advertisement.addadvertisement');
-
     }
 
     /**

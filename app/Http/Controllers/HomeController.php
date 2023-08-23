@@ -36,4 +36,7 @@ class HomeController extends Controller
         $allbanner=banner::all();
         return view('welcome',compact('allbanner','allblog'));
     }
+    public function languageDemo(){
+        return view('languageDemo');
+    }
 }
